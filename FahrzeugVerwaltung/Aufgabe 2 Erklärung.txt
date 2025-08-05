@@ -1,0 +1,9 @@
+Wieso ist es wichtig, dass IVehicleService von IVehicleRepository ableitet?
+Eine Designentscheidung für eine klare Trennung zwischen Datenzugriff (Repository) und der Logik (Service)
+
+Gut für:
+- Wiederverwendbarkeit im Service
+- Erweiterbarkeit durch definieren zusätzlicher Methoden
+- Konsistenz da Services oft auf Repositories aufbauen und wenn Service Interface die gleichen Methoden wie das Repository benötigt(plus eigene) macht es Sinn einfach
+vom Repository Interface zu erben
+- vermeidet konflikte durch Vererbung
