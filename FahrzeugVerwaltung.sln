@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FahrzeugVerwaltung.Shared",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FahrzeugVerwaltung.LINQ", "FahrzeugVerwaltung.LINQ\FahrzeugVerwaltung.LINQ.csproj", "{7560B310-43E4-4A5D-888C-548235CFFB4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aufgabe", "Aufgabe\Aufgabe.csproj", "{FAA4AEE8-826E-423B-A8BB-4692C9A86C94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{7560B310-43E4-4A5D-888C-548235CFFB4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7560B310-43E4-4A5D-888C-548235CFFB4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7560B310-43E4-4A5D-888C-548235CFFB4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAA4AEE8-826E-423B-A8BB-4692C9A86C94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA4AEE8-826E-423B-A8BB-4692C9A86C94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA4AEE8-826E-423B-A8BB-4692C9A86C94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA4AEE8-826E-423B-A8BB-4692C9A86C94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

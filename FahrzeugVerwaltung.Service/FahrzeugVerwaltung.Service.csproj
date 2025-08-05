@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Aufgabe\Aufgabe.csproj" />
   </ItemGroup>
 
 </Project>

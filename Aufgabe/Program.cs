@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Aufgabe2
-{ 
+namespace Aufgabe
+{
 
     abstract public class Vehicle
     {
@@ -20,7 +20,7 @@ namespace Aufgabe2
             this.Brand = Brand;
             this.Model = Model;
         }
-        
+
     }
 
     public class PKW : Vehicle
@@ -36,7 +36,7 @@ namespace Aufgabe2
         public double Capacity { get; set; }
         public LKW(string Brand, string Model, double Capacity) : base(Brand, Model)
         {
-            
+
             this.Capacity = Capacity;
             this.Type = "LKW";
         }
