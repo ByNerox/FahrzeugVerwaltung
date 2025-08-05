@@ -10,6 +10,11 @@
     <EmbeddedResource Remove="Models\**" />
     <None Remove="Models\**" />
     <Page Remove="Models\**" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FahrzeugVerwaltung.Service\FahrzeugVerwaltung.Service.csproj" />
   </ItemGroup>
 
 </Project>
