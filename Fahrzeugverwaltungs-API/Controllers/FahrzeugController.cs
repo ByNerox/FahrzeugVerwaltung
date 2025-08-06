@@ -1,5 +1,6 @@
 ﻿using Fahrzeugverwaltungs_API.Models;
 using Fahrzeugverwaltungs_API.Repositories;
+using Fahrzeugverwaltungs_API.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,16 +12,21 @@ namespace Fahrzeugverwaltungs_API.Controllers
     [Route("fahrzeuge")]
     public class FahrzeugController : ControllerBase
     {
+        private readonly FahrzeugService _service;
+        public FahrzeugController(FahrzeugService service)
+        {
+            _service = service;
+        }
         [HttpGet]
         public ActionResult<List<Fahrzeug>> Getall()
         {
-            return Ok(InMemoryRepository.Fahrzeuge);
+            return Ok(_service.GetAll());
         }
 
         [HttpGet("{id}")]
         public ActionResult<Fahrzeug> GetById(int id)
         {
-            Fahrzeug fahrzeug = InMemoryRepository.Fahrzeuge.FirstOrDefault(f => f.ID == id);
+            Fahrzeug fahrzeug = _service.GetById(id);
             if (fahrzeug == null)
             {
                 return NotFound();
@@ -34,51 +40,30 @@ namespace Fahrzeugverwaltungs_API.Controllers
         [HttpPost]
         public ActionResult<Fahrzeug> newVehicle(Fahrzeug f)
         {
-            if (InMemoryRepository.Fahrzeuge.Any())
-            {
-                f.ID = InMemoryRepository.Fahrzeuge.Max(f => f.ID) + 1;
-            }
-            else
-            {
-                f.ID = 1;
-            }
-
-            InMemoryRepository.Fahrzeuge.Add(f);
-            return CreatedAtAction(nameof(GetById), new { id = f.ID }, f);
+            Fahrzeug createdF = _service.Create(f);
+            return CreatedAtAction(nameof(GetById), new { id = f.ID }, createdF);
         }
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, Fahrzeug updatedF)
         {
-            Fahrzeug f = InMemoryRepository.Fahrzeuge.FirstOrDefault(f => f.ID == id);
-            if (f == null)
-            {
+            if (!_service.Update(id, updatedF)) {
                 return NotFound();
             }
-            
-            f.Hersteller = updatedF.Hersteller;
-            f.Modell = updatedF.Modell;
-            f.Baujahr = updatedF.Baujahr;
-            f.Kennzeichen = updatedF.Kennzeichen;
-            
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            Fahrzeug f = InMemoryRepository.Fahrzeuge.FirstOrDefault(f => f.ID == id);
-
-            if (f == null) { 
-                return NotFound(); 
-            }
-            else
+            if (!_service.Delete(id))
             {
-                InMemoryRepository.Fahrzeuge.Remove(f);
-                return NoContent();
+                return NotFound();
             }
+            return NoContent();
         }
 
-         
+
     }
 
 
