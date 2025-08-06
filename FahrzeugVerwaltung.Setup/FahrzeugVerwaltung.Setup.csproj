@@ -1,7 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+	<OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Unity" Version="5.11.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aufgabe\Aufgabe.csproj" />
+    <ProjectReference Include="..\FahrzeugVerwaltung.Service\FahrzeugVerwaltung.Service.csproj" />
+    <ProjectReference Include="..\FahrzeugVerwaltung\FahrzeugVerwaltung.csproj" />
+  </ItemGroup>
 
 </Project>
